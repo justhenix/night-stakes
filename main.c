@@ -249,94 +249,89 @@ void welcome(void) {
     clear_screen();
 }
 
-void main_menu(void) {
-    int menu_choice = 0;
-    do {
-        // Draw banner again
-        clear_screen();
-        printf(TEXT_RED);
-        puts("\t\t +====================================================================================================================+");
-        puts("\t\t       /$$   /$$ /$$           /$$         /$$            /$$$$$$   /$$               /$$");
-        puts("\t\t      | $$$ | $$|__/          | $$        | $$           /$$__  $$ | $$              | $$");
-        puts("\t\t      | $$$$| $$ /$$  /$$$$$$ | $$$$$$$  /$$$$$$        | $$  \\__//$$$$$$    /$$$$$$ | $$   /$$  /$$$$$$   /$$$$$$$");
-        puts("\t\t      | $$ $$ $$| $$ /$$__  $$| $$__  $$|_  $$_/        |  $$$$$$|_  $$_/   |____  $$| $$  /$$/ /$$__  $$ /$$_____/");
-        puts("\t\t      | $$  $$$$| $$| $$  \\ $$| $$  \\ $$  | $$           \\____  $$ | $$      /$$$$$$$| $$$$$$/ | $$$$$$$$|  $$$$$$ ");
-        puts("\t\t      | $$\\  $$$| $$| $$  | $$| $$  | $$  | $$ /$$       /$$  \\ $$ | $$ /$$ /$$__  $$| $$_  $$ | $$_____/ \\____  $$");
-        puts("\t\t      | $$ \\  $$| $$|  $$$$$$$| $$  | $$  |  $$$$/      |  $$$$$$/ |  $$$$/|  $$$$$$$| $$ \\  $$|  $$$$$$$ /$$$$$$$/");
-        puts("\t\t      |__/  \\__/|__/ \\____  $$|__/  |__/  \\___/         \\______/   \\___/   \\_______/|__/  \\__/ \\_______/|_______/");
-        puts("\t\t                     /$$  \\ $$ ");
-        puts("\t\t                    |  $$$$$$/ ");
-        puts("\t\t                     \\______/  ");
-        puts("\t\t +===================================================================================================================+");
-		printf(TEXT_RESET);
-		
-		printf(TEXT_BOLD);
-        puts("\n                                                                  Main Menu");
-        printf(TEXT_RESET);
-        
-        puts("\n\n                                                                  1. Play");
-        puts("                                                                  2. Credit");
-        puts("                                                                  3. Exit");
-        printf("\n\n                                                              Choose menu 1 2 or 3: ");
-        fflush(stdout);
-		
-        if (scanf("%d", &menu_choice) != 1) {
-            // clear invalid input
-            while ((c = getchar()) != '\n' && c != EOF);
-            puts("\n\n                                                              Invalid input");
-            display_delay(2000);
-            clear_screen();
-            menu_choice = 0;
-            continue;
-        }
+	void main_menu(void) {
+	    int menu_choice = 0;
+	    do {
+	        // Draw banner again
+	        clear_screen();
+	        printf(TEXT_RED);
+	        puts("\t\t +====================================================================================================================+");
+	        puts("\t\t       /$$   /$$ /$$           /$$         /$$            /$$$$$$   /$$               /$$");
+	        puts("\t\t      | $$$ | $$|__/          | $$        | $$           /$$__  $$ | $$              | $$");
+	        puts("\t\t      | $$$$| $$ /$$  /$$$$$$ | $$$$$$$  /$$$$$$        | $$  \\__//$$$$$$    /$$$$$$ | $$   /$$  /$$$$$$   /$$$$$$$");
+	        puts("\t\t      | $$ $$ $$| $$ /$$__  $$| $$__  $$|_  $$_/        |  $$$$$$|_  $$_/   |____  $$| $$  /$$/ /$$__  $$ /$$_____/");
+	        puts("\t\t      | $$  $$$$| $$| $$  \\ $$| $$  \\ $$  | $$           \\____  $$ | $$      /$$$$$$$| $$$$$$/ | $$$$$$$$|  $$$$$$ ");
+	        puts("\t\t      | $$\\  $$$| $$| $$  | $$| $$  | $$  | $$ /$$       /$$  \\ $$ | $$ /$$ /$$__  $$| $$_  $$ | $$_____/ \\____  $$");
+	        puts("\t\t      | $$ \\  $$| $$|  $$$$$$$| $$  | $$  |  $$$$/      |  $$$$$$/ |  $$$$/|  $$$$$$$| $$ \\  $$|  $$$$$$$ /$$$$$$$/");
+	        puts("\t\t      |__/  \\__/|__/ \\____  $$|__/  |__/  \\___/         \\______/   \\___/   \\_______/|__/  \\__/ \\_______/|_______/");
+	        puts("\t\t                     /$$  \\ $$ ");
+	        puts("\t\t                    |  $$$$$$/ ");
+	        puts("\t\t                     \\______/  ");
+	        puts("\t\t +===================================================================================================================+");
+			printf(TEXT_RESET);
 
-        switch (menu_choice) {
-            case 1:
-                start();
-				play_sequence();
-                break;
-            case 2:
-                credit();
-                break;
-            case 3:
-                bye_msg();
-                break;
-            default:
-                puts("\n\n                                                              Invalid choice, try again");
-                display_delay(2000);
-                clear_screen();
-        }
-    } while (menu_choice != 3);
-}
+			printf(TEXT_BOLD);
+	        puts("\n                                                                  Main Menu");
+	        printf(TEXT_RESET);
 
-void start(void){
-    clear_screen();
-    // Intended loading animation (UX kind of thingy)
-    printf("\n\n\t\t                                                              Starting game.");
-    display_delay(1000);
-    printf(".");
-    display_delay(1000);
-    printf(".");
-    display_delay(2000);
-    clear_screen();
-}
+	        puts("\n\n                                                                  1. Play");
+	        puts("                                                                  2. Credit");
+	        puts("                                                                  3. Exit");
+	        printf("\n\n                                                              Choose menu 1 2 or 3: ");
+	        fflush(stdout);
 
-void credit(void){
-	clear_screen();
-	printf("            == CREDIT ==\n\n");
-	
-	typefx("Program Name : Night Stakes\n", 25);
-	typefx("Creator      : Gamma Assyafi Fadhillah Ar Rasyad\n", delay_ms);
-	typefx("ID Number    : L0125013\n", delay_ms);
-	typefx("Class        : A\n", delay_ms);
-	typefx("Major        : Informatics\n", delay_ms);
-	typefx("Subject      : Programming Concept\n", delay_ms);
-	typefx("Assistant    : Andradhi Bondan Pamungkas and Muhamad Nabil Fannani\n", delay_ms);
-	
-	display_delay(2000);
-	wait_for_keypress();
-    clear_screen();
-}
+	        if (scanf("%d", &menu_choice) != 1) {
+	            // clear invalid input
+	            while ((c = getchar()) != '\n' && c != EOF);
+	            puts("\n\n                                                              Invalid input");
+	            display_delay(2000);
+	            clear_screen();
+	            menu_choice = 0;
+	            continue;
+	        }
+
+	        switch (menu_choice) {
+	            case 1:
+	                start();
+					play_sequence();
+	                break;
+	            case 2:
+	                credit();
+	                break;
+	            case 3:
+	                bye_msg();
+	                break;
+	            default:
+	                puts("\n\n                                                              Invalid choice, try again");
+	                display_delay(2000);
+	                clear_screen();
+	        }
+	    } while (menu_choice != 3);
+	}
+
+	void start(void){
+	    clear_screen();
+	    // Intended loading animation (UX kind of thingy)
+	    printf("\n\n\t\t                                                              Starting game.");
+	    display_delay(1000);
+	    printf(".");
+	    display_delay(1000);
+	    printf(".");
+	    display_delay(2000);
+	    clear_screen();
+	}
+
+	void credit(void){
+		clear_screen();
+		printf("            == CREDIT ==\n\n");
+
+		typefx("Program Name : Night Stakes\n", 25);
+		typefx("Creator      : gammaad\n", delay_ms);
+
+		display_delay(2000);
+		wait_for_keypress();
+	    clear_screen();
+	}
 
 static void waiver_ascii(void) {
 	puts("\t\t +=============================================================================+");
@@ -428,11 +423,10 @@ void reset_player(void){
 
 bool check_if_broke(void) {
 	if (gPlayer.money <= 0) {
-		gPlayer.money = 0; // Avoid negative values by set money to 0
 		clear_screen();
-		typefx("DEALER: You're out of chips.\n", delay_ms);
+		typefx("DEALER: Hmm, You're out of chips.\n", delay_ms);
 		display_delay(600);
-		typefx("DEALER: The house always wins.\n", delay_ms);
+		typefx("DEALER: The house always wins, isn't it?\n", delay_ms);
 		wait_for_keypress();
 		clear_screen();
 		return true; // Yes, the player is broke
@@ -498,8 +492,8 @@ void story_intro(){
 	typefx("\nYou feel the cold weight of debt in your gut. This is the brink.", delay_ms);
 	display_delay(600);
 
-	// --- Litte background story ---
-	typefx("\n\nYou remember the “sure win” bet that turned out not to be.", delay_ms);
+	// --- Little background story ---
+	typefx("\n\nYou remember the bet that turned out not to be.", delay_ms);
 	display_delay(500);
 	typefx("\nYou remember the slick paper of the final eviction notice.", delay_ms);
 	display_delay(500);
@@ -999,17 +993,19 @@ int story_before_rr(void){
 	display_delay(600);
 	typefx("The dealer opens a dusty drawer.\n", delay_ms);
 	display_delay(800);
-	typefx("DEALER: Look at this ol' lady, with this you can win more than ever before.\n\n	", delay_ms);
+	typefx("DEALER: Look at this ol' lady, with this you can win more than ever before.\n\n", delay_ms);
 	display_delay(400);
+	fflush(stdout);
 
-	printf("\t\t                                    /=>\n");
+	puts("\t\t                                     _");
+	puts("\t\t                                    /=>");
 	puts("\t\t     +____________________/\\/\\___ / /|");
 	puts("\t\t   .''._____________'._____      / /|/\\ ");
 	puts("\t\t  : () :              :\\ ----\\|    \\ )");
 	puts("\t\t   '..'______________.'0|----|      \\");
 	puts("\t\t                         |----    /----\\");
 	puts("\t\t                        || -\\\\ --|      \\");
-	puts("\t\t                        ||   || ||\\      \\");
+	puts("\t\t                         ||   || ||\\      \\");
 	puts("\t\t                         \\\\____// '|      \\");
 	puts("\t\t                                 .'/       |");
 	puts("\t\t                                .:/        |");
@@ -1048,7 +1044,7 @@ int story_before_rr(void){
 		} else if (choice == 'n') {
 			typefx("\nYOU: No...", delay_ms);
 			display_delay(600);
-			typefx("Not this time.\n", delay_ms);
+			typefx(" Not this time.\n", delay_ms);
 			display_delay(2000);
 			clear_screen();
 
@@ -1166,33 +1162,54 @@ int russian_roulette(void){
 	}
 }
 
-
 void ending_scene(void){
-	// Use a slightly slower delay for the ending text to be more dramatic
+    // Use a slightly slower delay for the ending text to be more dramatic
     int end_delay_ms = 25;
 
     clear_screen();
     display_delay(1500); // Pause for dramatic effect before the ending
 
+    // First, check if the player died
     if (gPlayer.alive == false) {
         // ENDING 4: PEACE (Died during Russian Roulette)
-        // So we just show the "end" screen.
         printf(TEXT_RED TEXT_BOLD);
         puts("\n\n\n\n");
         typefx("\t\t\t\t\tT H E   E N D", 75);
         puts("\n\n");
-        typefx("\t\t\t\t\tENDING 4/4: PEACE", 50);
+        typefx("\t\t\t\t\tENDING 4/5: PEACE", 50);
+        printf(TEXT_RESET);
+        puts("\n\n\n\n\n");
+        display_delay(3000);
+
+    } else if (gPlayer.money <= 0) {
+        // NEW ENDING: THE HOUSE WINS (Player went bankrupt)
+        typefx("The dealer sweeps your last worthless chip off the table.\n", end_delay_ms);
+        display_delay(800);
+        typefx("DEALER: \"The house always wins.\"\n\n", end_delay_ms);
+        display_delay(1200);
+
+        typefx("There's nothing left to bet. Nothing left to lose.\n", end_delay_ms);
+        display_delay(800);
+        typefx("He gestures toward the door with his head.\n", end_delay_ms);
+        display_delay(800);
+        typefx("DEALER: \"Time to go. Don't come back until you can pay.\"\n\n", end_delay_ms);
+        display_delay(800);
+        typefx("You walk out with nothing but the clothes on your back and the weight of your failure.\n", end_delay_ms);
+        display_delay(2000);
+
+        printf(TEXT_RED TEXT_BOLD); // Red for a definitive loss
+        puts("\n\n\n\n");
+        typefx("\t\t\t\t\tT H E   E N D", 75);
+        puts("\n\n");
+        typefx("\t\t\t\t\tENDING 3/5: MORE DEBT", 50); // Renumbered endings
         printf(TEXT_RESET);
         puts("\n\n\n\n\n");
         display_delay(3000);
 
     } else {
-        // Player is still alive and these decide the ending
-
+        // Player is alive AND not broke
         if (gPlayer.walkedAway == false) {
             // ENDING 1: HOLLOW (Survived Russian Roulette and won the jackpot)
-            // This implies gPlayer.money is very high (>= 100000)
-
             typefx("The dealer shoves the stack of chips toward you.\n", end_delay_ms);
             display_delay(800);
             typefx("DEALER: \"A deal's a deal. Get out.\"\n\n", end_delay_ms);
@@ -1213,7 +1230,7 @@ void ending_scene(void){
             puts("\n\n\n\n");
             typefx("\t\t\t\t\tT H E   E N D", 75);
             puts("\n\n");
-            typefx("\t\t\t\t\tENDING 1/4: HOLLOW", 50);
+            typefx("\t\t\t\t\tENDING 1/5: HOLLOW", 50);
             printf(TEXT_RESET);
             puts("\n\n\n\n\n");
             display_delay(3000);
@@ -1221,9 +1238,8 @@ void ending_scene(void){
         } else {
             // Player chose to walk away before Russian Roulette
 
-            if (gPlayer.money >= 3000) {
+            if (gPlayer.money >= 2500) {
                 // ENDING 2: ENOUGH (Walked away with 'enough' money)
-
                 typefx("DEALER: \"Smart move.\"\n", end_delay_ms);
                 display_delay(800);
                 typefx("He nods, almost imperceptibly. A flicker... of respect?\n", end_delay_ms);
@@ -1244,15 +1260,13 @@ void ending_scene(void){
                 puts("\n\n\n\n");
                 typefx("\t\t\t\t\tT H E   E N D", 75);
                 puts("\n\n");
-                typefx("\t\t\t\t\tENDING 2/4: ENOUGH", 50);
+                typefx("\t\t\t\t\tENDING 2/5: ENOUGH", 50);
                 printf(TEXT_RESET);
                 puts("\n\n\n\n\n");
                 display_delay(3000);
 
             } else {
-                // ENDING 3: NEXT TIME (Walked away with little/lost money)
-                // (Money <= 2000, this 'else' covers < 3000)
-
+                // ENDING 5: NEXT TIME (Walked away with little/lost money)
                 typefx("The dealer lets out a small laugh. It's not a kind sound.\n", end_delay_ms);
                 display_delay(800);
                 typefx("DEALER: \"Running? With... that?\"\n", end_delay_ms);
@@ -1275,7 +1289,7 @@ void ending_scene(void){
                 puts("\n\n\n\n");
                 typefx("\t\t\t\t\tT H E   E N D", 75);
                 puts("\n\n");
-                typefx("\t\t\t\t\tENDING 3/4: NEXT TIME", 50);
+                typefx("\t\t\t\t\tENDING 5/5: NEXT TIME", 50);
                 printf(TEXT_RESET);
                 puts("\n\n\n\n\n");
                 display_delay(3000);
