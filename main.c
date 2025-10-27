@@ -1,10 +1,3 @@
-/* RESPONSI I - 08.Tema Hiburan/Game - Night Stakes
- * Nama  : Gamma Assyafi Fadhillah Ar Rasyad
- * NIM.  : L0125013
- * Kelas : A
- * Prodi : Informatika
- */
-
 // It's recommended to run the .exe or built version to get a better experience,
 // or using Embarcadero Dev-C++ to test from IDE (because automatically launch console),
 // also maximize or fullscreen the CLI.
